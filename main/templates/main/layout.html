@@ -1,0 +1,103 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Netcom</title>
+    <link rel="stylesheet" href="{% static 'main/css/main.css'%}">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet">
+  <link href="/examples/libs/ui-components/itc-slider/itc-slider.css" rel="stylesheet">
+  <script src="/examples/libs/ui-components/itc-slider/itc-slider.js" defer></script>
+
+</head>
+<body>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+<nav class="navbar navbar-default" style="background-color: #6EA4F2;">
+  <div class="container-fluid">
+    <!-- Логотип и мобильное меню -->
+    <div class="navbar-header">
+      <a class="navbar-brand" style="color:black; font-size: 24px; font-weight: bold;" href="{% url 'index' %}">
+        <span class="highlight" style="color:white; font-size: 24px; font-weight: bold;">NET</span>COM
+      </a>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-collapse"
+        style="background-color: #6EA4F2;">
+        <span class="sr-only"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <!-- Навигационные ссылки -->
+    <div class="collapse navbar-collapse" style="text-align:right;" id="navbar-collapse">
+      <ul class="nav navbar-nav">
+        <li><a style="color:white;font-weight: bold;" href="{% url 'index' %}">Головна</a></li>
+        <li><a style="color:white;font-weight: bold;" href="{% url 'internet' %}">Інтернет</a></li>
+        <li><a style="color:white;font-weight: bold;" href="{% url 'tv' %}">Телебачення</a></li>
+        <li><a style="color:white;font-weight: bold;" href="{% url 'equipment' %}">Обладнання</a></li>
+        {% if user.is_authenticated %}
+
+          <li><a style="color:white;font-weight: bold;" href="{% url 'logout' %}">Вихід</a></li>
+          <li><a style="color:white;font-weight: bold;" href="#">{{ user.username }}</a></li>
+        {% else %}
+          <li><a style="color:white;font-weight: bold;" href="{% url 'register' %}">Реєстрація</a></li>
+          <li><a style="color:white;font-weight: bold;" href="{% url 'login' %}">Вхід</a></li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    {% block content %}
+    {% endblock%}
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6482668bcc26a871b021763b/1h2em151l';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+
+
+
+
+</script>
+<!--End of Tawk.to Script-->
+
+
+
+	<footer>
+	  <div class="footer-container">
+		<div class="footer-logo">
+		  <span class="logo-text">NET<span class="logo-blue">COM</span></span>
+		</div>
+		<div class="footer-links">
+<!--		  <a href="page1.html">Главная</a>-->
+<!--		  <a href="page2.html">Услуги</a>-->
+<!--		  <a href="page3.html">Контакты</a>-->
+		</div>
+		<div class="footer-social">
+		  <a href="https://www.instagram.com/"><img src="{% static 'main/img/inst.png' %}" alt="Ссылка на соцсеть 1"></a>
+		  <a href="https://www.facebook.com/"><img src="{% static 'main/img/face.png' %}" alt="Ссылка на соцсеть 2"></a>
+		  <a href="https://www.youtube.com/"><img src="{% static 'main/img/yout.png' %}" alt="Ссылка на соцсеть 3"></a>
+		</div>
+		<div class="footer-contact">
+		  <p><span class="contact-phone">+38 (068) 748-37-29</span></p>
+		  <p><span class="contact-email">nikitagawrilenko2212@gmail.com</span></p>
+		</div>
+	  </div>
+	</footer>
+</body>
+
+</html>

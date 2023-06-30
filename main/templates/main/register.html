@@ -1,0 +1,51 @@
+{% extends 'main/layout.html'%}
+
+{% load static %}
+{% block content %}
+
+<form method="POST" class="formreg">
+    {% csrf_token %}
+    <h1>Реєстрація</h1>
+    <div class="text1">
+        <div class="form-group">
+            <label for="{{ form.name.id_for_label }}">Ваше ім'я</label>
+            {{ form.name }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.email.id_for_label }}">Email</label>
+            {{ form.email }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.phone.id_for_label }}">Телефон</label>
+            {{ form.phone }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.address.id_for_label }}">Адреса</label>
+            {{ form.address }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.package.id_for_label }}">Тариф</label>
+            <div class="form-field">{{ form.package }}</div>
+        </div>
+        <div class="form-group">
+            <label for="{{ form.tv_package.id_for_label }}">TV тариф</label>
+            <div class="form-field">{{ form.tv_package }}</div>
+        </div>
+        <div class="form-group">
+            <label for="{{ form.password.id_for_label }}">Пароль</label>
+            {{ form.password }}
+        </div>
+        <div class="form-group">
+            <label for="{{ form.password2.id_for_label }}">Повторити Пароль</label>
+            {{ form.password2 }}
+        </div>
+        {{ form.captcha }}
+        <button type="submit" class="btn btn-primary">Реєстрація</button>
+    </div>
+</form>
+
+<hr>
+
+
+
+{% endblock %}

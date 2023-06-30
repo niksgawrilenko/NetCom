@@ -1,0 +1,150 @@
+{% extends 'main/layout.html'%}
+
+{% load static %}
+{% block content %}
+	<div class="all">
+		<input checked type="radio" name="respond" id="desktop">
+			<article id="slider">
+					<input checked type="radio" name="slider" id="switch1">
+					<input type="radio" name="slider" id="switch2">
+					<input type="radio" name="slider" id="switch3">
+					<input type="radio" name="slider" id="switch4">
+					<input type="radio" name="slider" id="switch5">
+				<div id="slides">
+					<div id="overflow">
+						<div class="image">
+							<article>
+								 <div class="banner">
+									<div class="banner-text">
+										<h3>Безлімітний доступ до інтурнету для всіх пристроїв</h3>
+									</div>
+									<img src="{% static 'main/img/slide1.jpg' %}" alt="Banner Image" class="banner-image">
+								</div>
+							</article>
+							<article>
+								 <div class="banner">
+									<div class="banner-text">
+										<h2>Безкоштовне підключення</h2>
+									</div>
+									<img src="{% static 'main/img/slide2.jpg' %}" alt="Banner Image" class="banner-image">
+								</div>
+                            </article>
+							<article>
+								 <div class="banner">
+									<div class="banner-text">
+										<h2>Доступ до інформації зі всьго світу</h2>
+									</div>
+									<img src="{% static 'main/img/slide3.jpg' %}" alt="Banner Image" class="banner-image">
+								</div>
+                            </article>
+							<article>
+								 <div class="banner">
+									<div class="banner-text">
+										<h2>Навчання та розвиток</h2>
+									</div>
+									<img src="{% static 'main/img/slide4.jpg' %}" alt="Banner Image" class="banner-image">
+								</div>
+                            </article>
+							<article>
+								 <div class="banner">
+									<div class="banner-text">
+										<h2>Висока швидкість з'єднання</h2>
+									</div>
+									<img src="{% static 'main/img/slide5.jpg' %}" alt="Banner Image" class="banner-image">
+								</div>
+                            </article>
+						</div>
+					</div>
+				</div>
+				<div id="controls">
+					<label for="switch1" ></label>
+					<label for="switch2"></label>
+					<label for="switch3"></label>
+					<label for="switch4"></label>
+					<label for="switch5"></label>
+				</div>
+				<div id="active">
+					<label for="switch1"></label>
+					<label for="switch2"></label>
+					<label for="switch3"></label>
+					<label for="switch4"></label>
+					<label for="switch5"></label>
+				</div>
+			</article>
+	</div>
+    <hr>
+    <div class="banner">
+        <div class="banner-text">
+            <h2>Підключення за 0 UAH!</h2>
+            <p>Пропозиція діє для багатоквартирних будинків</p>
+			<div class="button-container">
+            	<a href="{% url 'register' %}" class="connect-button">Підключитись</a>
+       		</div>
+        </div>
+        <img src="{% static 'main/img/banner.png' %}" alt="Banner Image" class="banner-image">
+    </div>
+	<div class="info-block">
+		<h2 class="info-title">Чому варто підключити інтернет від NetCom сьогодні?</h2>
+		<div class="info-container">
+			<div class="info-item">
+				<img src="{% static 'main/img/info1.png' %}" alt="Image 1" class="info-image">
+				<p class="info-text">Стабільна висока швидкість з'єднання</p>
+			</div>
+			<div class="info-item">
+				<img src="{% static 'main/img/info2.png' %}" alt="Image 2" class="info-image">
+				<p class="info-text">Вигідна ціна</p>
+			</div>
+			<div class="info-item">
+				<img src="{% static 'main/img/info3.png' %}" class="info-image">
+				<p class="info-text">Розстрочка або оренда обладнання</p>
+			</div>
+		</div>
+	</div>
+<hr>
+	<div class="advn-container ">
+	  <div class="advn-text-block font-family">
+		<p>Ми готові забезпечити підключення протягом 1 дня, у зручний для вас час.</p>
+	  </div>
+	  <div class="advn-image-block">
+		<img src="{% static 'main/img/advn1.png' %}" alt="Изображение">
+	  </div>
+	</div>
+
+<hr>
+	<div class="advn-container2">
+	  <div class="advn-image-block2">
+		<img src="{% static 'main/img/advn2.png' %}" alt="Изображение">
+	  </div>
+	  <div class="advn-text-block2 ">
+		<p>Нашим клієнтам допомагає цілодобова служба підтримки, ви завжди можете зв'язатися з нашими фахівцями для вирішення будь-яких питань, пов'язаних з Інтернетом.</p>
+	  </div>
+	</div>
+<hr>
+
+
+	<div class="advn-container ">
+		<div class="advn-text-block">
+			<p>Для вашої зручності ми розмістили на сайті сервіс онлайн оплати за допомогою банківської карти. А керувати підключеними послугами та поповнювати рахунок можна прямо на сайті за допомогою зручного Особистого кабінету.</p>
+		</div>
+		<div class="advn-image-block">
+			<img src="{% static 'main/img/advn3.png' %}" alt="Изображение">
+		</div>
+	</div><hr>
+	<div class="advn-container2">
+	  <div class="advn-image-block2">
+		<img src="{% static 'main/img/advn4.png' %}" alt="Изображение">
+	  </div>
+	  <div class="advn-text-block2">
+		<p>Послуги NetCom доступні в багатьох містах України. Ми є дочірньою компанією ВАТ «Київстар», ми прибутковий і надійний провайдер</p>
+	  </div>
+	</div><hr>
+	<div class="advn-container">
+		<div class="advn-text-block">
+			<p>NetCom експлуатує та обслуговує одну з найбільших оптоволоконних ліній зв'язку в Україні протяжністю понад 76 тис. км. Його пропускна здатність становить понад 3,4 Тбіт/с.</p>
+		</div>
+		<div class="advn-image-block">
+			<img src="{% static 'main/img/advn5.png' %}" alt="Изображение">
+		</div>
+	</div><hr>
+{% endblock %}
+

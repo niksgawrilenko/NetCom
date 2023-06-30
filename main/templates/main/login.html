@@ -1,0 +1,32 @@
+{% extends 'main/layout.html'%}
+
+{% load static %}
+
+{% block content %}
+<div class="container" style="background-color: #E1E7F5;">
+  <div class="row justify-content-center"  >
+    <div class="col-md-6" style="width: 100%;">
+      <form method="POST"  >
+        {% csrf_token %}
+        <div class="text1"  style="width: 100%; ">
+          <h1>Авторизація</h1>
+          <div class="form-group" >
+            <label for="email">Email:</label>
+            <input type="email" class="form-control rounded-0" id="email" name="email" placeholder="Введіть ваш email" style="width: 100%;" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Пароль:</label>
+            <input type="password" class="form-control rounded-0" id="password" name="password" placeholder="Введіть ваш пароль" style="width: 100%;" required>
+          </div>
+          {{ form.captcha }}
+          <button type="submit" class="btn btn-primary">Увійти</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+
+<hr>
+
+{% endblock %}

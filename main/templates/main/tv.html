@@ -1,0 +1,66 @@
+{% extends 'main/layout.html'%}
+
+{% load static %}
+
+{% block content %}
+<h2 class="text-center">Тарифи телебачення</h2>
+
+<div class="tarif_container">
+  <div class="tarif_blok">
+    {% for package in tv_packages|slice:"1:" %}
+    <div class="tarif_card">
+      <div class="tarif_card-body">
+        <h5 class="tarif_card-title">{{ package.name }}</h5>
+        <p class="tarif_card-text"><img src="{% static 'main/img/tv.png' %}" alt="tv"> Кількість каналів: {{ package.get_channel_count }} шт</p>
+        <hr>
+
+        <a href="#" class="tarif_btn">{{ package.price }} UAH</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<hr>
+
+<h2 class="text-center">Список ТВ каналів</h2>
+
+<div id="accordion" class="scrollable-horizontal">
+  {% for package in tv_packages|slice:"1:" %}
+  <div class="card">
+    <div class="card-header" id="heading{{ package.id }}">
+      <h5 class="mb-0">
+        <button class="btn btn-link accordion-toggle" data-toggle="collapse" data-target="#collapse{{ package.id }}" aria-expanded="true" aria-controls="collapse{{ package.id }}">
+          <i class="fa fa-angle-down"></i> {{ package.name }}
+        </button>
+      </h5>
+    </div>
+<hr>
+    <div id="collapse{{ package.id }}" class="collapse" aria-labelledby="heading{{ package.id }}" data-parent="#accordion">
+      <div class="card-body">
+        <div class="channel-blocks">
+          {% for channel in package.channels.all %}
+          <div class="channel-block">
+            {% if channel.icon %}
+            <img src="{{ channel.icon.url }}" alt="{{ channel.name }} Icon" class="channel-icon">
+            {% endif %}
+            <p class="channel-name">{{ channel.name }}</p>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+
+
+
+
+
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+{% endblock %}

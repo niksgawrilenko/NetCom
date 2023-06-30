@@ -1,0 +1,72 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+<head>
+  <meta charset="utf-8">
+</head>
+{% block content %}
+<div class="container" style="width:80%; border-radius: 10px; padding: 20px; margin-left: 10%; margin-right: 10%;">
+  <div class="row" >
+    <h1 style="margin-left:10%;">Профіль користувача</h1>
+    <hr>
+    <h3 style="margin-left:10%;"><img style="width: 20px; height: 20px; " src="{% static 'main/img/balanse.png' %}"> {{ subscriber.balance }} UAH</h3>
+    <div class="user-container">
+
+          <div class="user-item">
+            <h2>Профіль</h2>
+              <h3> <p><img src="{% static 'main/img/name.png' %}"></p>{{ subscriber.name }}</h3>
+            <h3><p><img src="{% static 'main/img/email.png' %}"></p>{{ subscriber.email }}</h3>
+            <h3><p><img src="{% static 'main/img/address.png' %}"></p>{{ subscriber.address }}</h3>
+          </div>
+
+          <div class="user-item">
+            <h2>Тарифи</h2>
+            <h3><p><img src="{% static 'main/img/wifi.png' %}"> </p>{{ subscriber.package.name }}</h3>
+            <h3><p><img src="{% static 'main/img/tv.png' %}"></p>{{ subscriber.tv_package.name }}</h3>
+          </div>
+
+          <div class="user-item">
+            <h2 >Обладнання</h2>
+            <ul>
+              {% for equip in subscriber.equipment.all %}
+                <li>{{ equip.name }}</li>
+                <img src="{{ equip.icon.url }}" alt="{{ equip.name }} Icon" class="service-icon">
+              {% endfor %}
+            </ul>
+          </div>
+          <div class="user-item">
+            <h2>Додаткові послуги</h2>
+            <ul>
+              {% for add in subscriber.additional.all %}
+                <li>{{ add.name }}</li>
+                <img src="{{ add.icon.url }}" alt="{{ add.name }} Icon" class="service-icon">
+              {% endfor %}
+            </ul>
+          </div>
+    </div>
+  </div>
+</div>
+<hr>
+
+  <div class="container2">
+    <h1>Поповнення рахунку</h1>
+    <form  method="post" class="user-item">
+        {% csrf_token %}
+      <label for="cardNumber">Номер карти:</label>
+      <input type="text" id="cardNumber" name="cardNumber" placeholder="Enter card number" required>
+
+      <label for="expiryMonth">Місяць:</label>
+      <input type="number" id="expiryMonth" name="expiryMonth" placeholder="Month" min="1" max="12" required>
+
+      <label for="expiryYear">Рік:</label>
+      <input type="number" id="expiryYear" name="expiryYear" placeholder="Year" min="2023" max="2030" required>
+
+      <label for="cvv">CVV:</label>
+      <input type="number" id="cvv" name="cvv" placeholder="Enter CVV" required>
+
+      <label for="amount">Сумма:</label>
+      <input type="number" id="amount" name="amount" placeholder="Enter amount" required>
+
+      <input style="background-color: #6EA4F2;" type="submit" value="Оплатити">
+    </form>
+  </div>
+{% endblock %}

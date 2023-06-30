@@ -1,0 +1,23 @@
+{% extends 'main/layout.html'%}
+
+{% load static %}
+
+{% block content %}
+<h2 class="text-center">Обладнання</h2>
+<div class="equipment-container">
+    {% for item in equipment|slice:"1:" %}
+    <div class="equipment-item">
+        <div class="item-header">
+            <img src="{{ item.icon.url }}" alt="{{ item.name }} Icon">
+            <h4>{{ item.name }}</h4>
+        </div>
+        <div class="item-footer">
+
+            <button class="buy-button">{{ item.price }} UAH</button>
+        </div>
+    </div>
+    {% endfor %}
+</div><hr>
+
+
+{% endblock %}

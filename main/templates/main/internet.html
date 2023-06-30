@@ -1,0 +1,59 @@
+{% extends 'main/layout.html' %}
+{% load static %}
+
+{% block content %}
+  <h2 class="text-center">Інтернет тарифи</h2>
+
+<div class="tarif_container">
+  <div class="tarif_blok">
+    {% for package in packages %}
+    <div class="tarif_card">
+      <div class="tarif_card-body">
+        <h5 class="tarif_card-title">{{ package.name }}</h5>
+        <p class="tarif_card-text"><img src="{% static 'main/img/wifi.png' %}" alt="wifi"> Швидкість інтернету: {{ package.speed }} МБ/с</p>
+        <p class="tarif_card-text">Кількість трафіку: необмежена</p>
+        <p class="tarif_card-text">Технологія: Cable</p>
+        <hr>
+        <a href="#" class="tarif_btn">{{ package.price }} UAH</a>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<hr>
+
+
+<h2 class="text-center">Додаткові послуги</h2>
+  <h3 class="text-left">Антивіруси</h3>
+
+
+<div class="additional-services">
+  {% for additional in additional_services %}
+    {% if forloop.counter >= 1 and forloop.counter < 5 %}
+      <div class="service">
+        <img src="{{ additional.icon.url }}" alt="{{ additional.name }} Icon" class="service-icon">
+        <h5>{{ additional.name }}</h5>
+
+      <button>{{ additional.price }} UAH</button>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div>
+
+<hr>
+<h3 class="text-left">Фільми та серіали</h3>
+<div class="additional-services">
+  {% for additional in additional_services %}
+    {% if forloop.counter >= 5 and forloop.counter <= 9 %}
+      <div class="service">
+        <img src="{{ additional.icon.url }}" alt="{{ additional.name }} Icon" class="service-icon">
+        <h5>{{ additional.name }}</h5>
+        <button>{{ additional.price }} UAH</button>
+      </div>
+    {% endif %}
+  {% endfor %}
+</div><hr>
+
+
+{% endblock %}
